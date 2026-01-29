@@ -1,0 +1,15 @@
+server {
+    listen {{ nginx_port }};
+    server_name {{ nginx_server_name }};
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+
+    # Sử dụng vòng lặp để thêm user-specific configurations
+    {% for user in users %}
+    location /{{ user.name }} {
+        return 200 "Hello {{ user.name | upper }}, you are a {{ user.role }}.\n";
+    }
+    {% endfor %}
+}

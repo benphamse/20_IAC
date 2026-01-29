@@ -1,0 +1,7 @@
+[database]
+192.168.1.100 ansible_user=ben
+[webserver]
+192.168.1.111 ansible_user=benphamdev ansible_password=123456789
+[server:children]
+webserver
+database

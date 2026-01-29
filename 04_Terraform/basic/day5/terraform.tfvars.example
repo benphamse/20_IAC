@@ -1,0 +1,28 @@
+# Example Terraform Variables Configuration
+# Copy this file to terraform.tfvars and customize for your environment
+
+# Environment Configuration
+environment = "dev"                    # dev, test, or prod
+project_name = "your-project-name"     # Project identifier
+
+# Network Configuration
+vpc_cidr_block       = "10.0.0.0/16"   # VPC CIDR block
+public_subnet_1_cidr = "10.0.1.0/24"   # Public subnet CIDR
+availability_zone_1  = "ap-southeast-1a" # AWS availability zone
+
+# Compute Configuration
+instance_type = "t2.micro"             # EC2 instance type
+ami_value     = "ami-0b8607d2721c94a77" # Amazon Linux 2 AMI (update as needed)
+
+# AWS Configuration
+region = "ap-southeast-1"              # AWS region
+
+# Optional Settings
+enable_monitoring     = false          # Enable detailed monitoring
+backup_retention_days = 7              # Backup retention period (1-35 days)
+owner                = "Your Name"     # Resource owner tag
+
+# Note: For production, consider using:
+# - instance_type = "t2.medium" or larger
+# - enable_monitoring = true
+# - backup_retention_days = 14 or more 

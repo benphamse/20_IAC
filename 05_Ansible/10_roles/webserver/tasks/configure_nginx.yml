@@ -1,0 +1,23 @@
+# Task 2: Sao chép file cấu hình cho SITE của bạn
+# Chúng ta tạo file cấu hình mới, không ghi đè file chính
+- name: Configure Nginx
+  template:
+    src: templates/nginx-site.conf.j2
+    dest: /etc/nginx/sites-available/{{ nginx_server_name }}
+  notify:
+    - restart nginx
+
+# Task 3: Đảm bảo không còn site mặc định nào khác được kích hoạt
+- name: Xóa liên kết của site mặc định (nếu có)
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent # Xóa file symlink cũ đi
+  notify: restart nginx
+
+# Task 4: Kích hoạt site của bạn bằng cách tạo symbolic link
+- name: Kích hoạt site mới bằng symbolic link
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link # Tạo symlink để kích hoạt site
+  notify: restart nginx

@@ -1,0 +1,20 @@
+- name: get ip address webserver
+  hosts: webserver
+  tasks:
+    - name: get ip address
+      command: ip a
+      register: ip_address_webserver
+    - name: print ip address
+      debug:
+        msg: "{{ ip_address_webserver.stdout_lines }}"
+
+- name: get ip address database
+  hosts: database
+  tasks:
+    - name: get ip address
+      command: ip a
+      register: ip_address_database
+    - name: print ip address
+      debug:
+        msg: "{{ ip_address_database.stdout_lines }}"
+# ansible-playbook -i hosts.yml playbook.yml # if the play database not run, the play webserver will not run

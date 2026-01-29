@@ -1,0 +1,9 @@
+nginx_port: 80
+nginx_server_name: localhost
+users:
+  - name: admin
+    role: superuser
+  - name: user1
+    role: editor
+  - name: user2
+    role: viewer

@@ -1,0 +1,26 @@
+1. inventory
+ansible -i hosts -m ping all
+ansible -i hosts -m ping webserver
+
+ansible -i hosts.yml -m command -a "ip a" webserver
+2. playbooks-play
+
+3. tasks
+
+4. module
+
+5. roles
+
+ansible-galaxy init [name roles]
+
+6. variables
+
+7. templates
+
+8. handlers
+
+9. facts
+
+10. conditionals and loops
+
+11. ansible vault

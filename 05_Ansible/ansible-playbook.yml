@@ -1,0 +1,29 @@
+- name: My first play
+  hosts: all
+  tasks:
+    - name: test ping webserver
+      command: ping -c 1 {{ ansible_host }}
+      when: ansible_host == "192.168.1.111"
+    - name: test ping database
+      command: ping -c 1 {{ ansible_host }}
+      when: ansible_host == "192.168.1.100"
+    - name: get ip address
+      command: ip a
+      register: ip_address_webserver
+    - name: get ip address
+      command: ip a
+      register: ip_address_database
+    - name: print ip address
+      debug:
+        msg: "{{ ip_address_webserver.stdout_lines }}"
+    - name: print ip address
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ ip_address_database.stdout_lines }}"
+    - name: print network interfaces
+      debug:
+        var: ansible_interfaces
+    - name: print all IP addresses
+      debug:
+        var: ansible_all_ipv4_addresses
+# ansible-playbook -i hosts.yml playbook.yml # if database not found, it will not run the task but task test ping will run

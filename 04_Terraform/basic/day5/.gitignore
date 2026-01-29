@@ -1,0 +1,54 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.*
+.terraform/
+.terraform.lock.hcl
+
+# Terraform workspace state files
+terraform.tfstate.d/
+
+# Variable files with sensitive data
+#terraform.tfvars
+#*.auto.tfvars
+#*.auto.tfvars.json
+#secrets.tfvars
+#local.tfvars
+
+# Exception: Keep example files
+#!terraform.tfvars.example
+#!environments/*.tfvars
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files except those in environments/ folder
+# (environment-specific configurations are safe to commit)
+#*.tfvars
+#!environments/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Backup files
+*.backup
+*.bak
+*.tmp 

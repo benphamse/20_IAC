@@ -1,0 +1,10 @@
+leaf:
+  hosts:
+    webserver:
+      ansible_host: 192.168.1.111
+      ansible_user: benphamdev
+      ansible_become_password: "123456789"
+    database:
+      ansible_host: 192.168.1.100
+      ansible_user: ben
+      ansible_become_password: "1234"

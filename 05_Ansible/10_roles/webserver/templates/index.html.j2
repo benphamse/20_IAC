@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_title | replace('Ansible', 'Jinja2 Powered Ansible') }}</title>
+</head>
+<body>
+    <h1>{{ welcome_message | upper }}</h1>
+    {% if users %}
+    <h2>List of Users</h2>
+    <ul>
+        {% for user in users %}
+        <li>{{ user.name | default('Unknown') }} - Role: {{ user.role }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No users available.</p>
+    {% endif %}
+</body>
+</html>

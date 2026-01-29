@@ -1,0 +1,29 @@
+---
+# 1.  Các thao tác cơ bản với Vault
+# 1.1   Tạo file được mã hóa bằng Vault
+#     ansible-vault create secrets.yml
+# 1.2   Chỉnh sửa file Vault
+#     ansible-vault edit secrets.yml
+# 1.3   Xem nội dung file Vault
+#     ansible-vault view secrets.yml
+# 1.4   Mã hóa một file đã có
+#     ansible-vault encrypt plain-text.yml
+# 1.5   Giải mã một file
+#     ansible-vault decrypt secrets.yml
+# 1.6   Thay đổi mật khẩu cho Vault
+#     ansible-vault rekey secrets.yml
+
+# 2. Sử dụng Vault trong Playbook
+# 2.1   Tích hợp file Vault vào Playbook
+# 2.2   Chạy Playbook với Vault
+#     ansible-playbook playbook.yml --ask-vault-pass
+#     ansible-playbook playbook.yml --vault-password-file <password_file>
+
+- name: Sử dụng Vault để cấu hình database
+  hosts: db
+  vars_files:
+    - secrets2.yaml
+  tasks:
+    - name: Hiển thị mật khẩu
+      ansible.builtin.debug:
+        msg: "Database password is {{ db_password }}"

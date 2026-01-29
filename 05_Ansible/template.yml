@@ -1,0 +1,57 @@
+---
+- name: Cài đặt và cấu hình web server
+  hosts: webserver
+  become: yes
+  vars:
+    nginx_port: 80
+    nginx_server_name: "{{ ansible_hostname | default('localhost') }}"
+    site_title: "Welcome to Ansible"
+    welcome_message: "This is managed by Ansible automation."
+    users:
+      - name: admin
+        role: superuser
+      - name: user1
+        role: editor
+      - name: user2
+        role: viewer
+  tasks:
+    # Task 1: Cài đặt Nginx
+    - name: Cài đặt Nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    # Task 2: Sao chép file cấu hình cho SITE của bạn
+    # Chúng ta tạo file cấu hình mới, không ghi đè file chính
+    - name: Sao chép file cấu hình Nginx cho site
+      ansible.builtin.template:
+        src: templates/nginx-site.conf.j2
+        dest: /etc/nginx/sites-available/default # Tạo file cấu hình site
+      notify: Restart Nginx
+
+    # Task 3: Đảm bảo không còn site mặc định nào khác được kích hoạt
+    - name: Xóa liên kết của site mặc định (nếu có)
+      ansible.builtin.file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent # Xóa file symlink cũ đi
+      notify: Restart Nginx
+
+    # Task 4: Kích hoạt site của bạn bằng cách tạo symbolic link
+    - name: Kích hoạt site mới bằng symbolic link
+      ansible.builtin.file:
+        src: /etc/nginx/sites-available/default
+        dest: /etc/nginx/sites-enabled/default
+        state: link # Tạo symlink để kích hoạt site
+      notify: Restart Nginx
+
+    # Task 5: Sao chép file index.html
+    - name: Sao chép file index.html
+      ansible.builtin.template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+
+  handlers:
+    - name: Restart Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
