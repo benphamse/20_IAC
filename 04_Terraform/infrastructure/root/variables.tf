@@ -1,4 +1,14 @@
-# Common variables
+# ============================================================================
+# SHARED VARIABLES CONFIGURATION
+# ============================================================================
+# All variable definitions shared across environments.
+# Values are set in each environment's terraform.tfvars file.
+# ============================================================================
+
+# ============================================================================
+# COMMON VARIABLES
+# ============================================================================
+
 variable "aws_region" {
   description = "AWS region"
   type        = string
@@ -6,19 +16,21 @@ variable "aws_region" {
 }
 
 variable "environment" {
-  description = "Environment name"
+  description = "Environment name (dev, staging, prod)"
   type        = string
-  default     = "dev"
+  validation {
+    condition     = contains(["dev", "staging", "prod"], var.environment)
+    error_message = "Environment must be dev, staging, or prod."
+  }
 }
 
 variable "project_name" {
-  description = "Project name"
+  description = "Project name used for resource naming"
   type        = string
-  default     = "terraform-enterprise"
 }
 
 variable "cost_center" {
-  description = "Cost center for billing"
+  description = "Cost center for billing and resource tracking"
   type        = string
   default     = "engineering"
 }
@@ -29,7 +41,10 @@ variable "additional_tags" {
   default     = {}
 }
 
-# Network variables
+# ============================================================================
+# NETWORK VARIABLES
+# ============================================================================
+
 variable "vpc_cidr" {
   description = "CIDR block for VPC"
   type        = string
@@ -49,12 +64,15 @@ variable "private_subnet_cidrs" {
 }
 
 variable "enable_nat_gateway" {
-  description = "Enable NAT Gateway"
+  description = "Enable NAT Gateway for private subnets"
   type        = bool
   default     = true
 }
 
-# Compute variables
+# ============================================================================
+# COMPUTE VARIABLES
+# ============================================================================
+
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
@@ -62,7 +80,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  description = "EC2 Key Pair name"
+  description = "EC2 Key Pair name for SSH access"
   type        = string
   default     = null
 }
@@ -74,24 +92,27 @@ variable "enable_auto_scaling" {
 }
 
 variable "min_size" {
-  description = "Minimum number of instances"
+  description = "Minimum number of instances in Auto Scaling Group"
   type        = number
   default     = 1
 }
 
 variable "max_size" {
-  description = "Maximum number of instances"
+  description = "Maximum number of instances in Auto Scaling Group"
   type        = number
   default     = 3
 }
 
 variable "desired_capacity" {
-  description = "Desired number of instances"
+  description = "Desired number of instances in Auto Scaling Group"
   type        = number
   default     = 2
 }
 
-# Security variables
+# ============================================================================
+# SECURITY VARIABLES
+# ============================================================================
+
 variable "allowed_cidr_blocks" {
   description = "CIDR blocks allowed to access web services"
   type        = list(string)
@@ -99,7 +120,7 @@ variable "allowed_cidr_blocks" {
 }
 
 variable "enable_ssh_access" {
-  description = "Enable SSH access"
+  description = "Enable SSH access to instances"
   type        = bool
   default     = true
 }
@@ -110,21 +131,30 @@ variable "ssh_cidr_blocks" {
   default     = ["0.0.0.0/0"]
 }
 
-# Load Balancer variables
+# ============================================================================
+# LOAD BALANCER VARIABLES
+# ============================================================================
+
 variable "enable_load_balancer" {
   description = "Enable Application Load Balancer"
   type        = bool
   default     = false
 }
 
-# Storage variables
+# ============================================================================
+# STORAGE VARIABLES
+# ============================================================================
+
 variable "enable_storage_module" {
   description = "Enable S3 storage module"
   type        = bool
   default     = true
 }
 
-# Monitoring variables
+# ============================================================================
+# MONITORING VARIABLES
+# ============================================================================
+
 variable "enable_monitoring" {
   description = "Enable CloudWatch monitoring module"
   type        = bool
@@ -137,14 +167,20 @@ variable "log_retention_days" {
   default     = 7
 }
 
-# Caching variables
+# ============================================================================
+# CACHING VARIABLES
+# ============================================================================
+
 variable "enable_caching" {
   description = "Enable ElastiCache Redis/Memcached"
   type        = bool
   default     = false
 }
 
-# DNS variables
+# ============================================================================
+# DNS VARIABLES
+# ============================================================================
+
 variable "enable_dns" {
   description = "Enable Route53 DNS management"
   type        = bool
@@ -163,7 +199,10 @@ variable "create_hosted_zone" {
   default     = false
 }
 
-# Container variables
+# ============================================================================
+# CONTAINER VARIABLES (ECS)
+# ============================================================================
+
 variable "enable_containers" {
   description = "Enable ECS container services"
   type        = bool
@@ -176,9 +215,12 @@ variable "container_image" {
   default     = "nginx:latest"
 }
 
-# CI/CD variables
+# ============================================================================
+# CI/CD VARIABLES
+# ============================================================================
+
 variable "enable_cicd" {
-  description = "Enable CI/CD pipeline"
+  description = "Enable CI/CD pipeline (CodePipeline, CodeBuild, CodeDeploy)"
   type        = bool
   default     = false
 }
@@ -224,7 +266,7 @@ variable "github_token" {
   sensitive   = true
 }
 
-# IAM Role ARNs for CI/CD (you'll need to create these)
+# IAM Role ARNs for CI/CD
 variable "codebuild_service_role_arn" {
   description = "CodeBuild service role ARN"
   type        = string
@@ -243,7 +285,10 @@ variable "codepipeline_service_role_arn" {
   default     = null
 }
 
-# Serverless variables
+# ============================================================================
+# SERVERLESS VARIABLES (Lambda + API Gateway)
+# ============================================================================
+
 variable "enable_serverless" {
   description = "Enable serverless (Lambda + API Gateway)"
   type        = bool
@@ -292,7 +337,10 @@ variable "lambda_schedule_expression" {
   default     = null
 }
 
-# Backup variables
+# ============================================================================
+# BACKUP VARIABLES
+# ============================================================================
+
 variable "enable_backup" {
   description = "Enable AWS Backup"
   type        = bool
@@ -317,7 +365,10 @@ variable "enable_backup_notifications" {
   default     = false
 }
 
-# Governance variables
+# ============================================================================
+# GOVERNANCE VARIABLES (Config, CloudTrail, Security Hub, GuardDuty)
+# ============================================================================
+
 variable "enable_governance" {
   description = "Enable governance (Config, CloudTrail, Security Hub, GuardDuty)"
   type        = bool
