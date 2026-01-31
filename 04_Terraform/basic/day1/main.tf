@@ -13,9 +13,3 @@ resource "aws_instance" "example" {
     Environment = "dev"
   }
 }
-
-# Output example
-output "instance_id" {
-  description = "ID of the EC2 instance"
-  value       = aws_instance.example.id
-}

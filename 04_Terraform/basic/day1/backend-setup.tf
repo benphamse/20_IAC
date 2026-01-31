@@ -50,6 +50,7 @@ resource "aws_s3_bucket_public_access_block" "state" {
 }
 
 # Create DynamoDB table for state locking (optional but recommended)
+# Can't use dynamodb because it's deprecated
 resource "aws_dynamodb_table" "terraform_lock" {
   name         = "terraform-state-lock-${random_string.suffix.result}"
   billing_mode = "PAY_PER_REQUEST"
@@ -64,27 +65,5 @@ resource "aws_dynamodb_table" "terraform_lock" {
     Name        = "Terraform State Lock Table"
     Environment = "dev"
     Purpose     = "terraform-state-locking"
-  }
-}
-
-# Output the bucket name and DynamoDB table name
-output "s3_bucket_name" {
-  description = "The name of the S3 bucket for Terraform state"
-  value       = aws_s3_bucket.terraform_state.bucket
-}
-
-output "dynamodb_table_name" {
-  description = "The name of the DynamoDB table for state locking"
-  value       = aws_dynamodb_table.terraform_lock.name
-}
-
-output "backend_config" {
-  description = "Backend configuration for use in other Terraform configurations"
-  value = {
-    bucket         = aws_s3_bucket.terraform_state.bucket
-    key            = "day1/terraform.tfstate"
-    region         = "ap-southeast-1"
-    dynamodb_table = aws_dynamodb_table.terraform_lock.name
-    encrypt        = true
   }
 }

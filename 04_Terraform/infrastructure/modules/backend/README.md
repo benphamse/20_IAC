@@ -54,18 +54,18 @@ dynamodb_table = "myproject-dev-terraform-locks"
 
 ## Requirements
 
-| Name      | Version  |
-| --------- | -------- |
-| terraform | >= 1.5.0 |
-| aws       | ~> 5.0   |
-| random    | ~> 3.0   |
+| Name      | Version   |
+| --------- | --------- |
+| terraform | >= 1.14.0 |
+| aws       | ~> 6.30.0 |
+| random    | ~> 3.0    |
 
 ## Providers
 
-| Name   | Version |
-| ------ | ------- |
-| aws    | ~> 5.0  |
-| random | ~> 3.0  |
+| Name   | Version   |
+| ------ | --------- |
+| aws    | ~> 6.30.0 |
+| random | ~> 3.0    |
 
 ## Inputs
 

@@ -1,50 +1,3 @@
-# Data sources
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
-# Local values
-locals {
-  naming_prefix = "${var.project_name}-${var.environment}"
-
-  common_tags = merge(var.additional_tags, {
-    Project     = var.project_name
-    Environment = var.environment
-    ManagedBy   = "Terraform"
-    CostCenter  = var.cost_center
-  })
-
-  availability_zones = slice(data.aws_availability_zones.available.names, 0, 2)
-}
-
-# Networking module
-module "networking" {
-  source = "../../modules/networking"
-
-  vpc_cidr             = var.vpc_cidr
-  public_subnet_cidrs  = var.public_subnet_cidrs
-  private_subnet_cidrs = var.private_subnet_cidrs
-  availability_zones   = local.availability_zones
-  enable_nat_gateway   = var.enable_nat_gateway
-  naming_prefix        = local.naming_prefix
-  tags                 = local.common_tags
-}
-
 # Security module
 module "security" {
   source = "../../modules/security"
@@ -55,73 +8,6 @@ module "security" {
   allowed_cidr_blocks = var.allowed_cidr_blocks
   enable_ssh_access   = var.enable_ssh_access
   ssh_cidr_blocks     = var.ssh_cidr_blocks
-}
-
-# Compute module
-module "compute" {
-  source = "../../modules/compute"
-
-  naming_prefix      = local.naming_prefix
-  ami_id             = data.aws_ami.amazon_linux.id
-  instance_type      = var.instance_type
-  key_name           = var.key_name
-  security_group_ids = [module.security.web_security_group_id]
-  subnet_ids         = module.networking.public_subnet_ids
-  tags               = local.common_tags
-
-  enable_auto_scaling = var.enable_auto_scaling
-  min_size            = var.min_size
-  max_size            = var.max_size
-  desired_capacity    = var.desired_capacity
-
-  user_data = templatefile("${path.module}/user-data.sh", {
-    environment = var.environment
-  })
-}
-
-# Storage module
-module "storage" {
-  source = "../../modules/storage"
-
-  naming_prefix           = local.naming_prefix
-  tags                    = local.common_tags
-  versioning_enabled      = true
-  force_destroy           = true # Only for dev environment
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
-}
-
-# Load Balancing module (optional for dev)
-module "load_balancing" {
-  count  = var.enable_load_balancer ? 1 : 0
-  source = "../../modules/load-balancing"
-
-  naming_prefix      = local.naming_prefix
-  tags               = local.common_tags
-  vpc_id             = module.networking.vpc_id
-  subnet_ids         = module.networking.public_subnet_ids
-  security_group_ids = [module.security.alb_security_group_id]
-
-  # ALB Configuration
-  internal                   = false
-  enable_deletion_protection = false # Dev environment
-
-  # Target Group Configuration
-  target_port     = 80
-  target_protocol = "HTTP"
-
-  # Health Check Configuration
-  health_check_path                = "/"
-  health_check_healthy_threshold   = 2
-  health_check_unhealthy_threshold = 2
-  health_check_timeout             = 5
-  health_check_interval            = 30
-
-  # Listener Configuration
-  listener_port     = 80
-  listener_protocol = "HTTP"
 }
 
 # Monitoring module
@@ -170,34 +56,6 @@ module "caching" {
   # Backup
   snapshot_retention_limit = 1
   maintenance_window       = "sun:03:00-sun:04:00"
-}
-
-# DNS module (Route53)
-module "dns" {
-  count  = var.enable_dns ? 1 : 0
-  source = "../../modules/dns"
-
-  naming_prefix = local.naming_prefix
-  tags          = local.common_tags
-  aws_region    = var.aws_region
-
-  # Domain configuration
-  domain_name        = var.domain_name
-  create_hosted_zone = var.create_hosted_zone
-
-  # ALB integration
-  alb_dns_name = var.enable_load_balancer ? module.load_balancing[0].alb_dns_name : null
-  alb_zone_id  = var.enable_load_balancer ? module.load_balancing[0].alb_zone_id : null
-
-  # Private zone
-  create_private_zone = true
-  private_domain_name = "${var.environment}.internal"
-  vpc_id              = module.networking.vpc_id
-
-  # Health checks
-  enable_health_check = var.enable_load_balancer
-  health_check_port   = 80
-  health_check_path   = "/health"
 }
 
 # Container module (ECS)

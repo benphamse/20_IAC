@@ -14,7 +14,7 @@ The backend setup creates:
 ## Prerequisites
 
 - AWS CLI configured with appropriate credentials
-- Terraform >= 1.5.0 installed
+- Terraform >= 1.14.0 installed
 
 ## Setup Process
 

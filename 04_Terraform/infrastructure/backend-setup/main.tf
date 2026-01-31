@@ -3,12 +3,12 @@
 # Run this BEFORE configuring remote state in your main environments
 
 terraform {
-  required_version = ">= 1.5.0"
+  required_version = ">= 1.14.0"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.30.0"
     }
     random = {
       source  = "hashicorp/random"

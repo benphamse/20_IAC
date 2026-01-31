@@ -36,7 +36,7 @@ infrastructure/
 
 ### Prerequisites
 
-- Terraform >= 1.5.0
+- Terraform >= 1.14.0
 - AWS CLI configured with appropriate permissions
 - (Optional) Make for simplified commands
 

@@ -50,7 +50,7 @@ infrastructure/
 
 ### Prerequisites
 
-- Terraform >= 1.5.0
+- Terraform >= 1.14.0
 - AWS CLI configured
 - Appropriate AWS permissions
 
@@ -273,4 +273,5 @@ infrastructure/
 
 - [Terraform Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [Infrastructure as Code Patterns](https://infrastructure-as-code.com/patterns/)tected/)
 - [Infrastructure as Code Patterns](https://infrastructure-as-code.com/patterns/)

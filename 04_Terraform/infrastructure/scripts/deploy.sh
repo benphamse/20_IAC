@@ -36,7 +36,7 @@ log_error() {
 # Check if terraform is installed
 check_terraform() {
     if ! command -v terraform &> /dev/null; then
-        log_error "Terraform is not installed. Please install Terraform >= 1.5.0"
+        log_error "Terraform is not installed. Please install Terraform >= 1.14.0"
         exit 1
     fi
     
@@ -191,7 +191,7 @@ main() {
             echo "  help   - Show this help message"
             echo ""
             echo "Prerequisites:"
-            echo "  - Terraform >= 1.5.0"
+            echo "  - Terraform >= 1.14.0"
             echo "  - AWS CLI configured"
             echo "  - jq (for JSON processing)"
             exit 0

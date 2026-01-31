@@ -33,7 +33,7 @@ install_terraform() {
     log_info "Installing Terraform..."
 
     # Download and install Terraform
-    local tf_version="1.5.0"
+    local tf_version="1.14.0"
     local tf_url="https://releases.hashicorp.com/terraform/${tf_version}/terraform_${tf_version}_linux_amd64.zip"
 
     curl -LO "$tf_url"

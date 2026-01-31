@@ -3,7 +3,7 @@
 # Date: July 7, 2025
 
 # Variables
-TERRAFORM_VERSION := 1.5.0
+TERRAFORM_VERSION := 1.14.0
 AWS_REGION := ap-southeast-1
 PROJECT_NAME := web-app
 ENVIRONMENTS := dev test prod
