@@ -1,5 +1,5 @@
 module "networking" {
-  source = "./modules/networking"
+  source = "../modules/networking"
 
   vpc_cidr_block       = var.vpc_cidr_block
   public_subnet_1_cidr = var.public_subnet_1_cidr
@@ -9,7 +9,7 @@ module "networking" {
 
 # Security Module
 module "security" {
-  source = "./modules/security"
+  source = "../modules/security"
 
   vpc_id              = module.networking.vpc_id
   security_group_name = local.security_group_name
@@ -18,7 +18,7 @@ module "security" {
 
 # Compute Module
 module "compute" {
-  source = "./modules/compute"
+  source = "../modules/compute"
 
   ami_value         = var.ami_value
   instance_type     = var.instance_type

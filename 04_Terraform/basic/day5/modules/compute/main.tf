@@ -8,7 +8,7 @@ resource "aws_instance" "web_server1" {
   connection {
     type        = "ssh"
     user        = "ubuntu" # Replace with the appropriate username for your EC2 instance
-    private_key = file("/mnt/d/03_WorkSpace/01_SourceCode/19_DevopsForFresher/06_aws/key/terraform.pem")
+    private_key = file("../../../../../19_DevopsForFresher/06_aws/key/terraform.pem")
     # Replace with the path to your private key
     host = self.public_ip
   }
@@ -30,5 +30,53 @@ resource "aws_instance" "web_server1" {
 
   tags = {
     Name = "web_server1"
+  }
+}
+
+resource "null_resource" "cluster_info" {
+  triggers = {
+    always_run = timestamp()
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu" # Replace with the appropriate username for your EC2 instance
+    private_key = file("../../../../../19_DevopsForFresher/06_aws/key/terraform.pem")
+    # Replace with the path to your private key
+    host = aws_instance.web_server1.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'Current workspace: ${terraform.workspace}' > cluster_info.txt"
+    ]
+  }
+
+  provisioner "local-exec" {
+    command = "scp -i ../../../../../19_DevopsForFresher/06_aws/key/terraform.pem ubuntu@${aws_instance.web_server1.public_ip}:cluster_info.txt ."
+  }
+}
+
+resource "terraform_data" "cluster_info" {
+  triggers_replace = [
+    aws_instance.web_server1.public_ip
+  ]
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu" # Replace with the appropriate username for your EC2 instance
+    private_key = file("../../../../../19_DevopsForFresher/06_aws/key/terraform.pem")
+    # Replace with the path to your private key
+    host = aws_instance.web_server1.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'Current workspace: ${terraform.workspace}' > cluster_info.txt"
+    ]
+  }
+
+  provisioner "local-exec" {
+    command = "scp -i ../../../../../19_DevopsForFresher/06_aws/key/terraform.pem ubuntu@${aws_instance.web_server1.public_ip}:cluster_info.txt ."
   }
 }

@@ -1,0 +1,186 @@
+%-------------------------
+% Resume in Latex
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-6pt}
+}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Pham Duy Chien} \\ \vspace{4pt}
+    \textbf{\Large \scshape Fresher Cloud / DevOps Engineer} \\ \vspace{4pt}
+    \small 
+    \faPhone\ +84 833 998 180 ~
+    \href{mailto:phamchien152003@gmail.com}{\faEnvelope\ \underline{phamchien152003@gmail.com}} ~
+    \href{https://www.linkedin.com/in/chienpham-software-engineer}{\faLinkedin\ \underline{LinkedIn}} ~
+    \href{https://github.com/benphamse}{\faGithub\ \underline{GitHub}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+Fresher Cloud/DevOps Engineer with a strong foundation in cloud infrastructure, DevOps practices, and Infrastructure as Code. Experienced in automating CI/CD pipelines, provisioning cloud resources with Terraform, and working in cloud-native environments. Aspires to become a Data-Driven DevOps \& AI Architect, focusing on scalable, secure, and data-centric systems.
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Ho Chi Minh City University of Technology and Education}{2022 -- 2026 (Expected)}
+    {B.Sc. Information Security Engineering}{CPA: 3.55 / 4.0}
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills}
+\textbf{Languages:} Python, Java, C++, JavaScript, Shell \\
+\textbf{Frameworks:} Spring Boot, Express.js \\
+\textbf{Databases:} PostgreSQL, MySQL, SQL Server, Redis, Elasticsearch \\
+\textbf{Cloud \& DevOps:} AWS, OpenStack, Docker, Kubernetes \\
+\textbf{CI/CD \& IaC:} GitHub Actions, Azure DevOps, GitLab CI, Terraform \\
+\textbf{Monitoring \& Logging:} Prometheus, Zabbix, Kibana, Fluentd, Vector \\
+\textbf{Security \& Testing:} SAST (Snyk), Trivy, Arachni, Performance Testing (k6)
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {DevOps / Cloud Engineer (Intern → Fresher)}{Jul 2025 -- Present}
+    {Emesoft JSC}{}
+    \resumeItemListStart
+      \resumeItem{Maintained and enhanced Terraform modules to standardize cloud resource provisioning across multiple environments, reducing configuration drift and manual errors.}
+      \resumeItem{Designed and implemented CI/CD pipelines using GitHub Actions and Azure DevOps for data and application projects, accelerating deployment cycles.}
+      \resumeItem{Automated routine infrastructure and deployment tasks while integrating security checks to improve system reliability.}
+      \resumeItem{Recognized for strong learning ability and delivery quality, resulting in a successful transition from Intern to Fresher role.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {System Engineer Intern}{Feb 2025 -- Jun 2025}
+    {AES Company}{}
+    \resumeItemListStart
+      \resumeItem{Configured and managed routers, switches, and servers to ensure high availability and stable network performance.}
+      \resumeItem{Collaborated with IoT teams to design and deploy network infrastructure tailored for IoT environments.}
+      \resumeItem{Built a solid foundation in networking protocols, hardware configuration, and cross-functional collaboration.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+      {\textbf{Digitraker} $|$ \emph{DevOps / Cloud Engineer}}{Sep 2025 -- Nov 2025}
+      \resumeItemListStart
+        \resumeItem{Designed reusable Terraform modules to provision cloud infrastructure including EC2, VPC, subnets, security groups, and storage resources.}
+        \resumeItem{Implemented multi-environment infrastructure (dev/staging/prod) using parameterized variables and remote state management.}
+        \resumeItem{Integrated Infrastructure as Code workflows into CI/CD pipelines, enabling automated infrastructure provisioning and updates alongside application deployments.}
+        \resumeItem{Applied security-by-design principles including least-privilege IAM roles, network segmentation, and encrypted storage.}
+        \resumeItem{\textbf{Tech stack:} Terraform, AWS, Azure DevOps}
+      \resumeItemListEnd
+  \resumeProjectHeading
+      {\textbf{Civic+} $|$ \emph{DevOps / Cloud Engineer}}{Aug 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Built and maintained Infrastructure as Code to provision cloud resources for Document Service, ensuring consistent environments across deployments.}
+        \resumeItem{Automated CI/CD pipelines to deploy infrastructure changes with minimal manual intervention, reducing deployment errors and downtime.}
+        \resumeItem{Collaborated with development teams to align infrastructure design with application scalability and availability requirements.}
+        \resumeItem{\textbf{Tech stack:} Terraform, AWS, Azure DevOps}
+      \resumeItemListEnd
+  \resumeProjectHeading
+      {\textbf{Project Harmony (PracticeTek)} $|$ \emph{DevOps / Cloud Engineer}}{Aug 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Contributed to the development and maintenance of data migration pipelines to centralize business data into Zuora.}
+        \resumeItem{Managed Infrastructure as Code to provision and maintain AWS resources, supporting the full SDLC across Dev, QA, and Production environments.}
+        \resumeItem{Maintained a monorepo structure combining application code, data pipelines, and shared DevOps tooling.}
+        \resumeItem{Developed reusable scripts and CI workflows to improve deployment reliability and developer productivity.}
+        \resumeItem{\textbf{Tech stack:} Terraform, AWS, GitHub Actions}
+      \resumeItemListEnd
+  \resumeProjectHeading
+      {\textbf{Tea Shop} $|$ \emph{Backend Developer}}{Oct 2024 -- Dec 2024}
+      \resumeItemListStart
+        \resumeItem{Developed RESTful backend services using Spring Boot following layered architecture principles.}
+        \resumeItem{Implemented authentication and authorization using Spring Security to protect user and admin endpoints.}
+        \resumeItem{Integrated VNPay payment gateway and handled transaction workflows securely.}
+        \resumeItem{\textbf{GitHub:} \href{https://github.com/AiNga04/Ecommerce}{github.com/AiNga04/Ecommerce}}
+        \resumeItem{\textbf{Tech stack:} Spring Boot, MySQL, JSP}
+      \resumeItemListEnd
+  \resumeProjectHeading
+      {\textbf{Banking App} $|$ \emph{Backend Developer}}{Apr 2024 -- Jul 2024}
+      \resumeItemListStart
+        \resumeItem{Developed a banking application using Java and Spring Boot supporting both admin and end-user roles.}
+        \resumeItem{Integrated Firebase Realtime Database to send real-time notifications for transactions and user events.}
+        \resumeItem{Collaborated with Android developers to deliver an end-to-end banking solution across backend and mobile platforms.}
+        \resumeItem{\textbf{Backend GitHub:} \href{https://github.com/benphamse/BankingApp}{github.com/benphamse/BankingApp}}
+        \resumeItem{\textbf{Mobile GitHub:} \href{https://github.com/benphamse/Android-App-Banking}{github.com/benphamse/Android-App-Banking}}
+        \resumeItem{\textbf{Tech stack:} Spring Boot, MySQL, Firebase, Android, SQLite}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications \& Honors}
+\resumeItemListStart
+  \resumeItem{\textbf{AWS Certified CloudOps Engineer – Associate} (Jan 2026 -- Jan 2029)}
+  \resumeItem{\textbf{TOEIC 870} (Nov 2024 -- Nov 2026)}
+  \resumeItem{Academic Scholarship – Academic Year 2024--2025}
+  \resumeItem{Participant, CTF HCMUTE 2024 (Cybersecurity Competition)}
+  \resumeItem{Participant, Mastering IT 2024 (Academic IT Competition)}
+\resumeItemListEnd
+
+\end{document}

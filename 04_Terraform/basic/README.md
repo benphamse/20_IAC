@@ -1,3 +1,6 @@
+Reference AgentS Skill
+<https://skills.sh/wshobson/agents/terraform-module-library>
+
 ```shell
 export AWS_ACCESS_KEY_ID="your_key"
 export AWS_SECRET_ACCESS_KEY="your_secret"
@@ -18,6 +21,7 @@ terraform apply -var-file="envs/dev/terraform.tfvars" -auto-approve
 terraform output
 
 terraform fmt # This command formats your Terraform files to a canonical format and style.
+
 ```
 
 Of course. This is a very common error when working with AWS RDS and Terraform.

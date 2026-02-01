@@ -1,0 +1,187 @@
+\documentclass[11pt,a4paper,sans]{article}
+
+% % ===== ENCODING & LANGUAGE =====
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage[vietnamese]{babel}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage[left=1.25cm, right=1.25cm, top=1.25cm, bottom=1.25cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{array}
+
+% --- UI config ---
+\pagestyle{empty}
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+% Section format
+\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{8pt}
+
+% List spacing
+\setlist[itemize]{leftmargin=1.5em, nosep, topsep=2pt, itemsep=2pt}
+
+% --- Entry macro ---
+\newcommand{\entryheader}[4]{
+    \noindent \textbf{#1} \hfill #2 \\
+    \noindent \textit{#3} \hfill \textit{#4} \par
+    \vspace{2pt}
+}
+
+\begin{document}
+
+% ===== HEADER =====
+\begin{center}
+    {\Huge \textbf{PHẠM DUY CHIẾN}} \\[4pt]
+    {\large Fresher Cloud / DevOps Engineer} \\[8pt]
+
+    \small
+    \faPhone\ 0833998180 \quad
+    \faEnvelope\ \href{mailto:phamchien152003@gmail.com}{phamchien152003@gmail.com} \quad
+    \faMapMarker*\ TP Hồ Chí Minh, Việt Nam \\[4pt]
+
+    \faGithub\ \href{https://github.com/benphamse}{benphamse} \quad
+    \faLinkedin\ \href{https://www.linkedin.com/in/chienpham-software-engineer}{chienpham-software-engineer}
+\end{center}
+
+
+% ===== OBJECTIVE =====
+\section{Objective}
+\noindent
+As a dedicated and detail-oriented Cloud \& DevOps Engineer with a strong foundation in
+Cloud Infrastructure, Data Engineering, and Automation, I aim to become a
+\textbf{Data-Driven DevOps \& AI Architect} within the next 3--5 years.
+My passion lies in building scalable, secure, and data-centric systems, designing
+AI/ML-enabled pipelines, and applying AIOps practices to enhance system reliability,
+observability, and business intelligence.
+
+% ===== EDUCATION =====
+\section{Education}
+\entryheader{Ho Chi Minh City University of Technology and Education}
+{2022 -- Expected 2026}
+{Bachelor’s Degree in Information Security Engineering}
+{CPA: 3.55 / 4.0}
+
+% ===== SKILLS =====
+\section{Skills}
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\begin{tabular}{@{}p{3cm} p{5.5cm}@{}}
+\textbf{Languages:} & C++, Java, Python, JavaScript, Shell \\
+\textbf{Frameworks:} & Spring Boot, Express.js \\
+\textbf{Databases:} & MySQL, PostgreSQL, SQL Server, Redis \\
+\textbf{Cloud:} & AWS, OpenStack \\
+\textbf{Containers:} & Docker, Kubernetes \\
+\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{tabular}{@{}p{3cm} p{5.5cm}@{}}
+\textbf{CI/CD:} & GitHub Actions, Azure Pipelines, GitLab CI \\
+\textbf{IaC:} & Terraform \\
+\textbf{Monitoring:} & Prometheus, Zabbix \\
+\textbf{Logging:} & Elasticsearch, Kibana, Fluentd, Vector \\
+\textbf{Testing:} & K6, Snyk (SAST), Trivy, Arachni \\
+\end{tabular}
+\end{minipage}
+
+% ===== EXPERIENCE =====
+\section{Work Experience}
+
+\entryheader{Emesoft JSC}
+{Jul 2025 -- Present}
+{DevOps / Cloud Engineer Intern / Fresher}
+{}
+\begin{itemize}
+\item Maintained and enhanced Terraform modules to standardize cloud resource provisioning.
+\item Designed and implemented CI/CD pipelines for Data and Application projects using GitHub Actions and Azure Pipelines.
+\item Automated deployment workflows and integrated security checks into pipelines.
+\item \textbf{Achievement:} Successfully promoted from Intern to Fresher through strong technical delivery.
+\end{itemize}
+
+\vspace{6pt}
+\entryheader{AES Company}
+{Feb 2025 -- Jun 2025}
+{System Engineer Intern}
+{}
+\begin{itemize}
+\item Configured and managed routers, switches, and servers to ensure high availability.
+\item Collaborated with IoT teams to design and deploy network infrastructure for IoT systems.
+\item Built strong foundation in networking protocols and system operations.
+\end{itemize}
+
+% ===== PROJECTS =====
+\section{Projects}
+
+\entryheader{Civic+}
+{Aug 2025 -- Present}
+{DevOps / Cloud Engineer}
+{Team size: 30}
+\begin{itemize}
+\item Designed and implemented IaC for provisioning infrastructure for Document Service.
+\item Integrated Terraform workflows into CI/CD pipelines for automated infrastructure updates.
+\item Supported multi-environment deployments to ensure scalability and stability.
+\item \textbf{Tech stack:} Terraform, AWS, Azure Pipelines.
+\end{itemize}
+
+\vspace{6pt}
+\entryheader{Project Harmony (PracticeTek)}
+{Aug 2025 -- Present}
+{DevOps / Cloud Engineer}
+{Team size: 11}
+\begin{itemize}
+\item Contributed to data migration pipelines to centralize business data into Zuora.
+\item Managed monorepo structure including frontend, data pipelines, and shared tooling.
+\item Implemented IaC to provision AWS resources and supported SDLC across Dev/QA/Prod.
+\item \textbf{Tech stack:} Terraform, AWS, GitHub Actions.
+\end{itemize}
+
+\vspace{6pt}
+\entryheader{Project Digitraker}
+{Sep 2025 -- Nov 2025}
+{DevOps / Cloud Engineer}
+{Team size: 8}
+\begin{itemize}
+\item Designed and implemented Terraform scripts to provision cloud infrastructure.
+\item Integrated IaC with CI/CD pipelines for automated deployments.
+\item Applied security best practices including IAM roles and security groups.
+\item \textbf{Tech stack:} Terraform, AWS, Azure Pipelines.
+\end{itemize}
+
+\vspace{6pt}
+\entryheader{Tea Shop}
+{Oct 2024 -- Dec 2024}
+{Backend Developer}
+{Team size: 2}
+\begin{itemize}
+\item Developed backend services using Spring Boot.
+\item Implemented authentication and authorization with Spring Security.
+\item Integrated VNPay for secure payment processing.
+\item \textbf{Tech stack:} Spring Boot, MySQL, JSP.
+\end{itemize}
+
+\vspace{6pt}
+\entryheader{Banking App}
+{Apr 2024 -- Jul 2024}
+{Backend Developer}
+{Team size: 4}
+\begin{itemize}
+\item Developed banking features for admin and user roles using Spring Boot.
+\item Designed secure database schema and managed deployment processes.
+\item Integrated Firebase Realtime Database for transaction notifications.
+\item \textbf{Tech stack:} Spring Boot, Android, MySQL, Firebase, SQLite.
+\end{itemize}
+
+% ===== CERTIFICATIONS =====
+\section{Certifications \& Honors}
+\noindent \textbf{AWS Certified CloudOps Engineer – Associate} \hfill \textit{Jan 2026 -- Jan 2029} \\
+\noindent \textbf{TOEIC 870} – Proficient in English reading and writing. \hfill \textit{Nov 2024 -- Nov 2026} \\
+\noindent \textbf{Academic Scholarship} – Top academic performance. \hfill \textit{2024--2025} \\
+\noindent \textbf{CTF HCMUTE \& Mastering IT} – Cybersecurity and IT competitions. \hfill \textit{2024}
+
+\end{document}
