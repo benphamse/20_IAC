@@ -17,13 +17,13 @@ variable "public_subnet_2_cidr" {
 }
 
 variable "availability_zone_1" {
-  default     = "ap-southeast-1a"
+  default     = "us-east-1a"
   type        = string
   description = "First availability zone"
 }
 
 variable "availability_zone_2" {
-  default     = "ap-southeast-1b"
+  default     = "us-east-1b"
   type        = string
   description = "Second availability zone"
 }

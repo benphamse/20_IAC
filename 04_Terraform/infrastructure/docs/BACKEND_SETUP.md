@@ -60,7 +60,7 @@ Sau khi setup backend, các file `backend.hcl` sẽ được tự động cập 
 # environments/dev/backend.hcl
 bucket         = "devops-fresher-dev-terraform-state-abcd1234"
 key            = "environments/dev/terraform.tfstate"
-region         = "ap-southeast-1"
+region         = "us-east-1"
 encrypt        = true
 dynamodb_table = "devops-fresher-dev-terraform-locks"
 ```

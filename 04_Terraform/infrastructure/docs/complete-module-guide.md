@@ -321,7 +321,7 @@ module "backup" {
   backup_efs_filesystems = true
 
   # Cross-region backup
-  cross_region_vault_arn = "arn:aws:backup:ap-southeast-1:123456789012:backup-vault:backup-vault"
+  cross_region_vault_arn = "arn:aws:backup:us-east-1:123456789012:backup-vault:backup-vault"
 
   # Notifications
   enable_backup_notifications = true

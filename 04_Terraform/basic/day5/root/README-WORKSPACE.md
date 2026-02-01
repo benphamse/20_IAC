@@ -42,9 +42,9 @@ day5/
 
 | Môi trường | VPC CIDR    | Subnet CIDR | AZ              | Instance Type | Monitoring | Backup (days) |
 | ---------- | ----------- | ----------- | --------------- | ------------- | ---------- | ------------- |
-| **dev**    | 10.0.0.0/16 | 10.0.1.0/24 | ap-southeast-1a | t2.micro      | ❌         | 3             |
-| **test**   | 10.1.0.0/16 | 10.1.1.0/24 | ap-southeast-1b | t2.small      | ✅         | 5             |
-| **prod**   | 10.2.0.0/16 | 10.2.1.0/24 | ap-southeast-1c | t2.medium     | ✅         | 14            |
+| **dev**    | 10.0.0.0/16 | 10.0.1.0/24 | us-east-1a | t2.micro      | ❌         | 3             |
+| **test**   | 10.1.0.0/16 | 10.1.1.0/24 | us-east-1b | t2.small      | ✅         | 5             |
+| **prod**   | 10.2.0.0/16 | 10.2.1.0/24 | us-east-1c | t2.medium     | ✅         | 14            |
 
 ## 🚀 Cách Sử dụng
 

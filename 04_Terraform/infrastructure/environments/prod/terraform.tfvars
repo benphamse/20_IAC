@@ -4,7 +4,7 @@
 
 # Common
 environment  = "prod"
-aws_region   = "ap-southeast-1"
+aws_region   = "us-east-1"
 project_name = "terraform-enterprise"
 cost_center  = "production"
 

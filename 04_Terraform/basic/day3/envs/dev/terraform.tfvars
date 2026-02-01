@@ -1,5 +1,5 @@
 # Development Environment Configuration
-ami_value     = "ami-0b8607d2721c94a77" # Amazon Linux 2 AMI for ap-southeast-1
+ami_value     = "ami-0b8607d2721c94a77" # Amazon Linux 2 AMI for us-east-1
 instance_type = "t2.micro"              # Small instance for development
 
 # Development specific settings

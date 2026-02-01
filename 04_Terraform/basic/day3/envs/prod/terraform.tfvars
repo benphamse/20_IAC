@@ -1,4 +1,4 @@
-ami_value     = "ami-0b8607d2721c94a77" # Amazon Linux 2 AMI for ap-southeast-1
+ami_value     = "ami-0b8607d2721c94a77" # Amazon Linux 2 AMI for us-east-1
 instance_type = "t3.small"              # Larger instance for production workload
 
 # Production specific settings

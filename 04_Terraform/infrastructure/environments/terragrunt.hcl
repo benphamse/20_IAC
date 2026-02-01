@@ -21,5 +21,5 @@ terraform_version_constraint = ">= 1.5.0"
 # Common locals for reuse
 locals {
   # Get AWS region from environment tfvars or use default
-  aws_region = try(read_terragrunt_config("${get_terragrunt_dir()}/terragrunt.hcl").inputs.aws_region, "ap-southeast-1")
+  aws_region = try(read_terragrunt_config("${get_terragrunt_dir()}/terragrunt.hcl").inputs.aws_region, "us-east-1")
 }

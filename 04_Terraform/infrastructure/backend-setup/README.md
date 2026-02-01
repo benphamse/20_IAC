@@ -78,7 +78,7 @@ Edit `terraform.tfvars` to customize:
 
 ```hcl
 project_name          = "your-project-name"
-aws_region           = "ap-southeast-1"
+aws_region           = "us-east-1"
 create_backend_policy = true
 enable_monitoring     = false
 ```

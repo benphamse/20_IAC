@@ -15,7 +15,7 @@ terraform {
 
 
 provider "aws" {
-  region = "ap-southeast-1" # Set the AWS region to Singapore
+  region = "us-east-1" # Set the AWS region to Singapore
 }
 
 provider "vault" {

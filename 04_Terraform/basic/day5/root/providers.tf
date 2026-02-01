@@ -5,3 +5,8 @@ provider "aws" {
     tags = local.common_tags
   }
 }
+
+provider "aws" {
+  alias  = "west"
+  region = "us-west-1"
+}

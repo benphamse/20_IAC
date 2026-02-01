@@ -31,7 +31,7 @@ variable "public_subnet_1_cidr" {
 }
 
 variable "availability_zone_1" {
-  default     = "ap-southeast-1a"                               # Default availability zone for the first public subnet
+  default     = "us-east-1a"                                    # Default availability zone for the first public subnet
   type        = string                                          # The type of the variable, in this case a string
   description = "Availability zone for the first public subnet" # Description of what this variable represents
 }

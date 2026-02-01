@@ -108,7 +108,7 @@ terraform {
   backend "s3" {
     bucket         = "$BUCKET_NAME"
     key            = "day1/terraform.tfstate"
-    region         = "ap-southeast-1"
+    region         = "us-east-1"
     profile        = "default"
     encrypt        = true
     dynamodb_table = "$DYNAMODB_TABLE"
@@ -131,7 +131,7 @@ echo ""
 echo "Backend Configuration:"
 echo "- S3 Bucket: $BUCKET_NAME"
 echo "- DynamoDB Table: $DYNAMODB_TABLE"
-echo "- Region: ap-southeast-1"
+echo "- Region: us-east-1"
 echo "- Encryption: Enabled"
 echo "- State Locking: Enabled (S3 + DynamoDB)"
 echo ""

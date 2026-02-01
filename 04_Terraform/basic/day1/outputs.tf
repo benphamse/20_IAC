@@ -20,7 +20,7 @@ output "backend_config" {
   value = {
     bucket         = aws_s3_bucket.terraform_state.bucket
     key            = "day1/terraform.tfstate"
-    region         = "ap-southeast-1"
+    region         = "us-east-1"
     dynamodb_table = aws_dynamodb_table.terraform_lock.name
     encrypt        = true
   }

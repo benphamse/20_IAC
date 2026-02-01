@@ -5,8 +5,8 @@ module "networking" {
   vpc_cidr             = var.vpc_cidr
   public_subnet_1_cidr = var.public_subnet_1_cidr
   public_subnet_2_cidr = var.public_subnet_2_cidr
-  availability_zone_1  = "ap-southeast-1a"
-  availability_zone_2  = "ap-southeast-1b"
+  availability_zone_1  = "us-east-1a"
+  availability_zone_2  = "us-east-1b"
 }
 
 # Security Module

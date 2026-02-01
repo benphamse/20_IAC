@@ -24,7 +24,7 @@ module "backend" {
 
   naming_prefix                = "myproject-dev"
   environment                  = "dev"
-  aws_region                   = "ap-southeast-1"
+  aws_region                   = "us-east-1"
   state_retention_days         = 30
   enable_point_in_time_recovery = true
   create_backend_policy        = true
@@ -47,7 +47,7 @@ After deploying this module, update your `backend.hcl` file with the output valu
 # Use the backend_config_hcl output
 bucket         = "myproject-dev-terraform-state-abcd1234"
 key            = "environments/dev/terraform.tfstate"
-region         = "ap-southeast-1"
+region         = "us-east-1"
 encrypt        = true
 dynamodb_table = "myproject-dev-terraform-locks"
 ```
@@ -73,7 +73,7 @@ dynamodb_table = "myproject-dev-terraform-locks"
 | ----------------------------- | ------------------------------------------------ | ------------- | ------------------ | :------: |
 | naming_prefix                 | Prefix for naming resources                      | `string`      | n/a                |   yes    |
 | environment                   | Environment name (dev, staging, prod)            | `string`      | n/a                |   yes    |
-| aws_region                    | AWS region for resources                         | `string`      | `"ap-southeast-1"` |    no    |
+| aws_region                    | AWS region for resources                         | `string`      | `"us-east-1"` |    no    |
 | tags                          | Common tags to apply to all resources            | `map(string)` | `{}`               |    no    |
 | state_retention_days          | Number of days to retain old state file versions | `number`      | `30`               |    no    |
 | enable_point_in_time_recovery | Enable point in time recovery for DynamoDB table | `bool`        | `true`             |    no    |

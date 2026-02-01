@@ -1,3 +1,9 @@
+/**
+  <Block type> <Block Label> <Block Label> {
+    # Block body
+    <Identifier> = <Expression> # Argument
+  }
+*/
 module "networking" {
   source = "../modules/networking"
 

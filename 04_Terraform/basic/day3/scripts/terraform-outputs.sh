@@ -62,7 +62,7 @@ show_connection_info() {
     print_line
     log_header "🔗 Connection Information:"
     echo "   Environment: $ENV"
-    echo "   Region: ap-southeast-1"
+    echo "   Region: us-east-1"
     if command_exists jq && terraform show -json > /dev/null 2>&1; then
         local resource_count=$(terraform show -json | jq -r '.values.root_module.resources | length' 2>/dev/null || echo "N/A")
         echo "   Status: $resource_count resources deployed"
