@@ -9,26 +9,26 @@ Terraform Providers
 Terraform Language
 Variables and Data
 Meta Arguments
->> 1:54:40==Expressions
->> 2:41:01==Terraform State
->> 2:45:42==Initialization
->> 2:48:09==Writing and Modifying
->> 2:51:17==Plan and Apply
->> 2:54:23==Drift
->> 3:01:24==Troubleshooting
->> 3:05:55==Terraform Modules
->> 3:11:25==Terraform Workflows
->> 3:18:28==Terraform Backends
->> 3:37:22==Resources and Complex Types
->> 3:48:10==Built in Functions
->> 4:18:30==Terraform Cloud
->> 4:42:10==Terraform Enterprise
->> 4:51:47==Workspaces
->> 5:07:53==Sentinel and Terraform
->> 5:54:42==Packer
->> 6:22:04==Consul
->> 6:23:13==Vault
->> 6:56:06==Miscellaneous
+Expressions
+Terraform State
+Initialization
+Writing and Modifying
+Plan and Apply
+Drift
+Troubleshooting
+Terraform Modules
+Terraform Workflows
+Terraform Backends
+Resources and Complex Types
+Built in Functions
+Terraform Cloud
+Terraform Enterprise
+Workspaces
+Sentinel and Terraform
+Packer
+Consul
+Vault
+Miscellaneous
 
 ```shell
 export AWS_ACCESS_KEY_ID="your_key"

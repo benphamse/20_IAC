@@ -19,4 +19,4 @@ enable_monitoring     = true
 backup_retention_days = 5
 
 # Tags
-owner = "Ben Pham Dev" 
+owner = "Ben Pham Dev"

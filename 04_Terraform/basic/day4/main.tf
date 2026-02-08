@@ -25,3 +25,11 @@ module "compute" {
 
   depends_on = [module.networking, module.security]
 }
+
+resource "timeouts_example" "example" {
+  /* ... */
+
+  timeouts {
+    create = "60m"
+  }
+}
